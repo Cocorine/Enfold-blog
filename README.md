@@ -107,3 +107,8 @@ php artisan serve
 - Add Tags
 
 - Add 20 Posts
+
+- Generate storage symbolic link
+```
+php artisan storage:link
+```
