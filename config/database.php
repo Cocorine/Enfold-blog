@@ -17,6 +17,16 @@ return [
 
     'default' => env('DB_CONNECTION', 'mysql'),
 
+    // postgres://yqhjpfgxgkbvuk:d2bd4f0aaa2cc889e3f48173ebac8ae1d81e17eb5709501dc055587b7ad4aaf3@ec2-3-223-213-207.compute-1.amazonaws.com:5432/da41113clje11j
+
+    $DATABASE_URL = [
+        "host" => "ec2-3-223-213-207.compute-1.amazonaws.com",
+        "port" => 5432,
+        "user" => "yqhjpfgxgkbvuk",
+        "pass" => "d2bd4f0aaa2cc889e3f48173ebac8ae1d81e17eb5709501dc055587b7ad4aaf3",
+        "path" => "da41113clje11j",
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Database Connections
@@ -65,6 +75,21 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
+            'host' => $DATABASE_URL["host"],
+            'port' => $DATABASE_URL["port"],
+            'database' => ltrim($DATABASE_URL["path"], "/"),
+            'username' => $DATABASE_URL["user"],
+            'password' => $DATABASE_URL["pass"],
+            'charset' => 'utf8',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'schema' => 'public',
+            'sslmode' => 'prefer',
+        ],
+
+        /* 
+        'pgsql' => [
+            'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '5432'),
@@ -77,7 +102,8 @@ return [
             'schema' => 'public',
             'sslmode' => 'prefer',
         ],
-
+        */
+        
         'sqlsrv' => [
             'driver' => 'sqlsrv',
             'url' => env('DATABASE_URL'),
