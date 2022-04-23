@@ -102,8 +102,8 @@ php artisan serve
 
 - Login
 
--Add categories
+- Add categories
 
--Add Tags
+- Add Tags
 
--Add 20 Posts
+- Add 20 Posts
